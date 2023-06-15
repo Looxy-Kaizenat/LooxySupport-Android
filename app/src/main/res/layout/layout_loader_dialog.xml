@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="60sp"
+    android:layout_height="60sp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardBackgroundColor="@color/white"
+    app:cardCornerRadius="15sp">
+
+    <pl.droidsonroids.gif.GifImageView
+        android:layout_width="60sp"
+        android:layout_height="60sp"
+        android:src="@drawable/loader"/>
+
+</androidx.cardview.widget.CardView>

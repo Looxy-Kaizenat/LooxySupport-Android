@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">LooxySupport</string>
+    <string name="user_list">User List</string>
+    <string name="shop_list">Shop List</string>
+    <string name="booking_list">Booking List</string>
+    <string name="phone">Phone</string>
+    <string name="no_of_bookings">No. of Bookings</string>
+    <string name="wallet_amount">Wallet Amount</string>
+    <string name="redeem_status">Redeem Status</string>
+    <string name="no_data_available">No data available</string>
+    <string name="check_internet">Internet connection not available</string>
+    <string name="server_error_please_try_again_after_sometime">Server Error, Please try again after sometime</string>
+    <string name="loading_please_wait">Loading, Please wait…</string>
+    <string name="search_user_name_phone">Search user name / phone</string>
+</resources>

@@ -1,0 +1,251 @@
+{
+  "project_info": {
+    "project_number": "546214769577",
+    "project_id": "elito-25c31",
+    "storage_bucket": "elito-25c31.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:546214769577:android:45d64da8aa4b902e214ab8",
+        "android_client_info": {
+          "package_name": "com.looxy.expert"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "546214769577-dsod1gsoh614kis5e7mu68n1pv9vkrhj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.looxy.expert",
+            "certificate_hash": "0012e75fd57ce28b4078d656a305180f4f03ade3"
+          }
+        },
+        {
+          "client_id": "546214769577-moh4prtpu48ag07pv4e04tpqceg5mpac.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCe5MFKEmKl5AiJa1jErNu9cnXxZUSJSSU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "546214769577-moh4prtpu48ag07pv4e04tpqceg5mpac.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "546214769577-cog9stgatk2saqsb7b96enfpcbu1n0hv.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.looxy.looxypartners",
+                "app_store_id": "1658745625"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:546214769577:android:85bd20c12df08988214ab8",
+        "android_client_info": {
+          "package_name": "com.looxy.expertkotlin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "546214769577-soqu6rq18q42dakjk5050deu6kuvmq87.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.looxy.expertkotlin",
+            "certificate_hash": "0012e75fd57ce28b4078d656a305180f4f03ade3"
+          }
+        },
+        {
+          "client_id": "546214769577-moh4prtpu48ag07pv4e04tpqceg5mpac.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCe5MFKEmKl5AiJa1jErNu9cnXxZUSJSSU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "546214769577-moh4prtpu48ag07pv4e04tpqceg5mpac.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "546214769577-cog9stgatk2saqsb7b96enfpcbu1n0hv.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.looxy.looxypartners",
+                "app_store_id": "1658745625"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:546214769577:android:47e272e7ecdc963a214ab8",
+        "android_client_info": {
+          "package_name": "com.looxy.looxysupport"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "546214769577-dtt6m13jmjjq1a926nfp48jiu3bp5882.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.looxy.looxysupport",
+            "certificate_hash": "0012e75fd57ce28b4078d656a305180f4f03ade3"
+          }
+        },
+        {
+          "client_id": "546214769577-moh4prtpu48ag07pv4e04tpqceg5mpac.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCe5MFKEmKl5AiJa1jErNu9cnXxZUSJSSU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "546214769577-moh4prtpu48ag07pv4e04tpqceg5mpac.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "546214769577-cog9stgatk2saqsb7b96enfpcbu1n0hv.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.looxy.looxypartners",
+                "app_store_id": "1658745625"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:546214769577:android:3a4dccd9dc098324214ab8",
+        "android_client_info": {
+          "package_name": "com.looxy.partner"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "546214769577-cpet5knbhbt3hvt4v2884ciq7kpohhp0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.looxy.partner",
+            "certificate_hash": "705e16416cb9a733e97eb4e20e566c931c058871"
+          }
+        },
+        {
+          "client_id": "546214769577-muslflfa1paui8v6loklm8k6tpja6t41.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.looxy.partner",
+            "certificate_hash": "0012e75fd57ce28b4078d656a305180f4f03ade3"
+          }
+        },
+        {
+          "client_id": "546214769577-moh4prtpu48ag07pv4e04tpqceg5mpac.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCe5MFKEmKl5AiJa1jErNu9cnXxZUSJSSU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "546214769577-moh4prtpu48ag07pv4e04tpqceg5mpac.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "546214769577-cog9stgatk2saqsb7b96enfpcbu1n0hv.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.looxy.looxypartners",
+                "app_store_id": "1658745625"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:546214769577:android:0071bd2c1be52e24214ab8",
+        "android_client_info": {
+          "package_name": "com.looxy.user"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "546214769577-i0cjsga5871im0hv587plp7ro7vq4aq3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.looxy.user",
+            "certificate_hash": "a649afcb787a959fda1b8d4e0c39a1d92bda289a"
+          }
+        },
+        {
+          "client_id": "546214769577-l5hot6k5vl54tes593h4sp53og5adrqu.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.looxy.user",
+            "certificate_hash": "0012e75fd57ce28b4078d656a305180f4f03ade3"
+          }
+        },
+        {
+          "client_id": "546214769577-moh4prtpu48ag07pv4e04tpqceg5mpac.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCe5MFKEmKl5AiJa1jErNu9cnXxZUSJSSU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "546214769577-moh4prtpu48ag07pv4e04tpqceg5mpac.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "546214769577-cog9stgatk2saqsb7b96enfpcbu1n0hv.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.looxy.looxypartners",
+                "app_store_id": "1658745625"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
