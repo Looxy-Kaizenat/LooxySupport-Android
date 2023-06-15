@@ -17,9 +17,13 @@
         android:theme="@style/Theme.LooxySupport"
         tools:targetApi="34">
         <activity
-            android:name=".activity.ActivityUserList"
+            android:name=".activity.ActivityShopList"
             android:exported="false"
             android:theme="@style/secondaryTheme"/>
+        <activity
+            android:name=".activity.ActivityUserList"
+            android:exported="false"
+            android:theme="@style/secondaryTheme" />
         <activity
             android:name=".activity.MainActivity"
             android:exported="false" />
