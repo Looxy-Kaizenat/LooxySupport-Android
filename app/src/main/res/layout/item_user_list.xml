@@ -41,13 +41,40 @@
             <TextView
                 android:id="@+id/textPhone"
                 android:layout_width="0dp"
-                android:layout_weight="1"
+                android:layout_weight="1.5"
                 android:layout_height="wrap_content"
                 android:textSize="13sp"
-                android:textIsSelectable="true"
                 android:text="@string/app_name"
                 android:textColor="@color/black"
+                style="@style/bold"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:textSize="11sp"
+                android:text="@string/email"
+                android:textColor="@color/dark_grey"
                 style="@style/regular" />
+
+            <TextView
+                android:id="@+id/textEmail"
+                android:layout_width="0dp"
+                android:layout_weight="1.5"
+                android:layout_height="wrap_content"
+                android:textSize="13sp"
+                android:text="@string/app_name"
+                android:textColor="@color/black"
+                style="@style/bold"
+                android:drawablePadding="5sp"
+                app:drawableStartCompat="@drawable/mail_icon" />
         </LinearLayout>
 
         <LinearLayout
@@ -68,12 +95,38 @@
             <TextView
                 android:id="@+id/textTotalBookings"
                 android:layout_width="0dp"
-                android:layout_weight="1"
+                android:layout_weight="1.5"
                 android:layout_height="wrap_content"
                 android:textSize="13sp"
                 android:text="@string/app_name"
                 android:textColor="@color/black"
+                style="@style/bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:textSize="11sp"
+                android:text="@string/gender"
+                android:textColor="@color/dark_grey"
                 style="@style/regular" />
+
+            <TextView
+                android:id="@+id/textGender"
+                android:layout_width="0dp"
+                android:layout_weight="1.5"
+                android:layout_height="wrap_content"
+                android:textSize="13sp"
+                android:text="@string/app_name"
+                android:textColor="@color/black"
+                style="@style/bold" />
         </LinearLayout>
     </LinearLayout>
 

@@ -96,4 +96,11 @@
         parent="Widget.Design.BottomSheet.Modal">
         <item name="android:background">@drawable/shape_rectangle_white_with_topright_topleft_radius15</item>
     </style>
+
+    <!--    tab layout services-->
+    <style name="MyCustomTextAppearanceBooking" parent="TextAppearance.Design.Tab">
+        <item name="textAllCaps">false</item>
+        <item name="android:textSize">16sp</item>
+        <item name="fontFamily">@font/bold</item>
+    </style>
 </resources>

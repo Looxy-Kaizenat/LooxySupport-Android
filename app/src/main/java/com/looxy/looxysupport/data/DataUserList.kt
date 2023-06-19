@@ -1,13 +1,13 @@
 package com.looxy.looxysupport.data
 
-class UserListResponse {
-    data class UserList(
+class DataUserList {
+    data class StatusCheck(
         val status : String,
-        val response : List<DataUserList>,
+        val response : List<DataList>,
         val message : String
     )
 
-    data class DataUserList(
+    data class DataList(
         val id : String,
         val name : String,
         val email : String,

@@ -10,7 +10,7 @@
         android:layout_width="55sp"
         android:layout_height="match_parent"
         android:background="@drawable/black_opacity_click_animation"
-        android:padding="10dp"
+        android:padding="12dp"
         android:src="@drawable/back_icon"
         app:tint="@color/dark_grey" />
 
@@ -27,6 +27,6 @@
         android:paddingEnd="5sp"
         android:text="@string/app_name"
         android:textColor="@color/dark_grey"
-        android:textSize="20sp" />
+        android:textSize="18sp" />
 
 </RelativeLayout>

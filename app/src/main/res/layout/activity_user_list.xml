@@ -29,7 +29,7 @@
                 android:paddingStart="15sp"
                 android:paddingEnd="15sp"
                 android:textSize="14sp"
-                style="@style/regular"
+                style="@style/bold"
                 android:inputType="textCapWords"
                 android:textColor="@color/black"
                 android:background="@color/white"
@@ -52,7 +52,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/recyclerView"
-                    android:paddingTop="10dp"
+                    android:paddingTop="0dp"
                     android:paddingBottom="50dp"/>
 
                 <include

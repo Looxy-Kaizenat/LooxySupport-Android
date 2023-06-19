@@ -17,7 +17,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.looxy.looxysupport.R
 import com.looxy.looxysupport.adapter.AdapterUserList
-import com.looxy.looxysupport.data.UserListResponse
+import com.looxy.looxysupport.data.DataUserList
 import com.looxy.looxysupport.utilities.APICall
 import com.looxy.looxysupport.utilities.ConnectionDetector
 import com.looxy.looxysupport.utilities.GifLoader
@@ -25,18 +25,13 @@ import com.looxy.looxysupport.utilities.GlobalValues
 import com.looxy.looxysupport.utilities.RetrofitHelper
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.Job
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.cancel
-import kotlinx.coroutines.isActive
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import org.json.JSONException
 import org.json.JSONObject
-import retrofit2.Call
-import retrofit2.Callback
 import retrofit2.Response
-import kotlin.coroutines.CoroutineContext
 
 class ActivityUserList : AppCompatActivity(), AdapterUserList.OnItemClick{
 
@@ -58,7 +53,7 @@ class ActivityUserList : AppCompatActivity(), AdapterUserList.OnItemClick{
     private lateinit var editSearch: EditText
 
     private val mCallBack: AdapterUserList.OnItemClick = this
-    var listArray: MutableList<UserListResponse.DataUserList> = mutableListOf()
+    var listArray: MutableList<DataUserList.DataList> = mutableListOf()
     lateinit var adapterUserList: AdapterUserList
 
     var searchParam: String = ""
@@ -137,7 +132,7 @@ class ActivityUserList : AppCompatActivity(), AdapterUserList.OnItemClick{
 
     inner class GetData: CoroutineScope by MainScope()
     {
-        lateinit var result: Response<UserListResponse.UserList>
+        lateinit var result: Response<DataUserList.StatusCheck>
 
         val coroutineScope = CoroutineScope(Dispatchers.Main)
 
@@ -157,7 +152,7 @@ class ActivityUserList : AppCompatActivity(), AdapterUserList.OnItemClick{
 
             try {
 
-                result = RetrofitHelper.getInstance().create(APICall.UserListApi::class.java)
+                result = RetrofitHelper.getInstance().create(APICall.ApiUserList::class.java)
                     .getResult(registerToken, pagination = "true", page_limit = pageLimit,
                         page_number = pagenumber, search_parm = searchParam)
 
@@ -223,9 +218,10 @@ class ActivityUserList : AppCompatActivity(), AdapterUserList.OnItemClick{
             layoutNoData.visibility = View.VISIBLE
     }
 
-    override fun onClickedItem(position: Int, list: UserListResponse.DataUserList?, status: Int) {
-        if(status == 1)
-            Toast.makeText(context, list?.name ?: "", Toast.LENGTH_SHORT).show()
+    override fun onClickedItem(position: Int, list: DataUserList.DataList?, status: Int) {
+        if(status == 1) {
+//            Toast.makeText(context, list?.name ?: "", Toast.LENGTH_SHORT).show()
+        }
     }
 
 }

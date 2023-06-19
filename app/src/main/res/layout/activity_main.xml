@@ -107,7 +107,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="16sp"
-                    android:text="@string/booking_list"
+                    android:text="@string/booking_data"
                     android:textColor="@color/black"
                     style="@style/bold"
                     android:layout_marginTop="10dp"/>
