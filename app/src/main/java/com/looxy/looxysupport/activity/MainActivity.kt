@@ -41,7 +41,7 @@ class MainActivity : AppCompatActivity() {
 
         cardViewUserList.setOnClickListener { startActivity(Intent(context, ActivityUserList::class.java)) }
         cardViewShopList.setOnClickListener { startActivity(Intent(context, ActivityShopList::class.java)) }
-        cardViewBookingList.setOnClickListener { startActivity(Intent(context, ActivityBookingData::class.java)) }
+        cardViewBookingList.setOnClickListener { startActivity(Intent(context, ActivityBookingHistory::class.java)) }
 
     }
 }

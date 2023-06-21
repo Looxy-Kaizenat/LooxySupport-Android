@@ -15,16 +15,16 @@ import com.looxy.looxysupport.fragment.FragmentBookingMissed
 import com.looxy.looxysupport.fragment.FragmentBookingUpcoming
 import com.looxy.looxysupport.viewpager.ViewPagerTabLayout
 
-class ActivityBookingData : AppCompatActivity() {
+class ActivityBookingHistory : AppCompatActivity() {
 
-    var context : Context = this@ActivityBookingData
+    var context : Context = this@ActivityBookingHistory
 
     lateinit var tabLayout: TabLayout
     lateinit var viewPager: ViewPager2
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_booking_data)
+        setContentView(R.layout.activity_booking_history)
 
         val imgBack: ImageView = findViewById(R.id.imgBack)
         val textActionTitle: TextView = findViewById(R.id.textActionTitle)

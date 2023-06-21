@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:gravity="center|start"
+    android:orientation="horizontal"
+    android:paddingStart="15sp"
+    android:paddingEnd="15sp"
+    android:paddingTop="5sp"
+    android:paddingBottom="5sp">
+
+<!--    previous weight 4-->
+    <TextView
+        android:id="@+id/textService"
+        style="@style/regular"
+        android:layout_width="0dp"
+        android:layout_weight="8"
+        android:layout_height="wrap_content"
+        android:text="@string/app_name"
+        android:textColor="@color/dark_grey"
+        android:textSize="10sp"
+        android:maxLines="1"
+        android:ellipsize="end"
+        tools:ignore="SmallSp" />
+
+    <TextView
+        android:id="@+id/textExpert"
+        style="@style/regular"
+        android:layout_width="0dp"
+        android:layout_weight="2.5"
+        android:layout_height="wrap_content"
+        android:text="@string/app_name"
+        android:layout_marginStart="5sp"
+        android:textColor="@color/dark_grey"
+        android:textSize="10sp"
+        android:maxLines="1"
+        android:visibility="gone"
+        android:ellipsize="end"
+        tools:ignore="SmallSp" />
+
+    <TextView
+        android:id="@+id/textSlot"
+        style="@style/regular"
+        android:layout_width="0dp"
+        android:layout_weight="4"
+        android:layout_height="wrap_content"
+        android:text="@string/app_name"
+        android:textColor="@color/dark_grey"
+        android:layout_marginStart="5sp"
+        android:textSize="10sp"
+        android:maxLines="1"
+        android:visibility="gone"
+        android:ellipsize="end"
+        tools:ignore="SmallSp" />
+
+    <TextView
+        android:id="@+id/textAmount"
+        android:layout_width="0dp"
+        android:layout_weight="2"
+        android:layout_height="wrap_content"
+        android:text="@string/Rs0"
+        android:textColor="@color/dark_grey"
+        android:layout_marginStart="5sp"
+        android:gravity="end"
+        style="@style/regular"
+        android:textSize="10sp"
+        android:maxLines="1"
+        android:ellipsize="end"
+        tools:ignore="SmallSp"/>
+
+</LinearLayout>

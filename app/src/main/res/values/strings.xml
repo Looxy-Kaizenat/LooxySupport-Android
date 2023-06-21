@@ -50,4 +50,18 @@
     <string name="completed">Completed</string>
     <string name="cancelled">Cancelled</string>
     <string name="missed">Missed</string>
+    <string name="slot_colon">Slot :</string>
+    <string name="services">Services</string>
+    <string name="stylist">Stylist</string>
+    <string name="slot">Slot</string>
+    <string name="amount">Amount</string>
+    <string name="service_deleted">Service Deleted</string>
+    <string name="total">Total</string>
+    <string name="offer_applied">Offer Applied</string>
+    <string name="tax_and_charges">Tax and Charges</string>
+    <string name="paid_amount">Paid Amount</string>
+    <string name="to_be_paid">To be paid</string>
+    <string name="user_name_unknown">User name : Unknown</string>
+    <string name="user_phone_unknown">User phone : Unavailable</string>
+    <string name="search_booking_data">Search Booking Data</string>
 </resources>

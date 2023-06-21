@@ -1,5 +1,6 @@
 package com.looxy.looxysupport.utilities
 
+import com.looxy.looxysupport.data.DataBookingHistory
 import com.looxy.looxysupport.data.DataShopList
 import com.looxy.looxysupport.data.DataUserList
 import retrofit2.Response
@@ -36,6 +37,19 @@ class APICall {
         suspend fun getResult(@Header("MyToken") token: String,
                               @Query("need_transaction") need_transaction: String,
                               @Query("shop_id") shop_id: String) : Response<DataShopList.StatusCheck>
+    }
+
+    interface ApiBookingHistory {
+        @GET("allBookings")
+        suspend fun getResult(@Header("MyToken") token: String,
+                              @Query("booking_type") booking_type: String,
+                              @Query("status") status: String,
+                              @Query("services_status") services_status: String,
+                              @Query("from_date") from_date: String,
+                              @Query("search_parm") search_parm: String,
+                              @Query("pagination") pagination: String,
+                              @Query("page_number") page_number: Int,
+                              @Query("page_limit") page_limit: Int) : Response<DataBookingHistory.StatusCheck>
     }
 
     /*interface UserListApi {
