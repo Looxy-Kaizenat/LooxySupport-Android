@@ -147,10 +147,14 @@ class MainActivity : AppCompatActivity() {
         )
         autoFromDate.setOnClickListener {
             showDatePickerDialog(startDateCalendar) { selectedDate ->
-                startDateCalendar = selectedDate
-                val dateFormat = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
-                fromDate = dateFormat.format(startDateCalendar.time)
-                autoFromDate.setText(DateFormat.dateToDate(fromDate))
+                if (selectedDate <= endDateCalendar) {
+                    startDateCalendar = selectedDate
+                    val dateFormat = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
+                    fromDate = dateFormat.format(startDateCalendar.time)
+                    autoFromDate.setText(DateFormat.dateToDate(fromDate))
+                } else {
+                    Toast.makeText(context, getString(R.string.from_date_should_be_less_than_to_date), Toast.LENGTH_SHORT).show()
+                }
             }
         }
         autoToDate.setOnClickListener {

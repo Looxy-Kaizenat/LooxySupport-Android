@@ -94,4 +94,5 @@
     <string name="no_of_pending_request_colon">No. of pending request :</string>
     <string name="to_date_should_be_greater_than_start_date">To date should be greater than start date</string>
     <string name="required">Required</string>
+    <string name="from_date_should_be_less_than_to_date">From date should be less than to date</string>
 </resources>
