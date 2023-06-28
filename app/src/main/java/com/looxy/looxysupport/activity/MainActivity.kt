@@ -133,7 +133,6 @@ class MainActivity : AppCompatActivity() {
 
         startDateCalendar = Calendar.getInstance()
         endDateCalendar = Calendar.getInstance()
-
         val currentDate = Calendar.getInstance()
         startDateCalendar.set(
             currentDate.get(Calendar.YEAR),
