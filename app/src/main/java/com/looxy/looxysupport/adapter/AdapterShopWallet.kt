@@ -42,19 +42,19 @@ class AdapterShopWallet(
         when (list.type) {
             "1" -> {
                 holder.circleImageView.setImageResource(R.drawable.credit)
-                holder.textAmount.text = "+" + strRs + AkConvertClass.decimalFormat(list.amount)
+                holder.textAmount.text = "+" + strRs + AkConvertClass.decimalFormat1Digit2Decimal(list.amount)
                 holder.textAmount.setTextColor(ContextCompat.getColor(context, R.color.green_600))
                 holder.textType.text = context.getString(R.string.credited)
             }
             "2" -> {
                 holder.circleImageView.setImageResource(R.drawable.debit)
-                holder.textAmount.text = "-" + strRs + AkConvertClass.decimalFormat(list.amount)
+                holder.textAmount.text = "-" + strRs + AkConvertClass.decimalFormat1Digit2Decimal(list.amount)
                 holder.textAmount.setTextColor(ContextCompat.getColor(context, R.color.red_400))
                 holder.textType.text = context.getString(R.string.debited)
             }
             "3" -> {
                 holder.circleImageView.setImageResource(R.drawable.bank_icon)
-                holder.textAmount.text = "-" + strRs + AkConvertClass.decimalFormat(list.amount)
+                holder.textAmount.text = "-" + strRs + AkConvertClass.decimalFormat1Digit2Decimal(list.amount)
                 holder.textAmount.setTextColor(ContextCompat.getColor(context, R.color.blue))
                 holder.textType.text = context.getString(R.string.transferred)
             }

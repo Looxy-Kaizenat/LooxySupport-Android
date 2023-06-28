@@ -36,7 +36,7 @@ class AdapterShopPendingWallet(
         val strRs = context.resources.getString(R.string.Rs)
 
         holder.textReference.text = "Ref. no : ${list.reference_number}"
-        holder.textAmount.text = strRs + AkConvertClass.decimalFormat(list.amount)
+        holder.textAmount.text = strRs + AkConvertClass.decimalFormat1Digit2Decimal(list.amount)
 
         when (list.status) {
             "1" -> {

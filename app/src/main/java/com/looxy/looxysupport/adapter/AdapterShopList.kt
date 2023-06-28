@@ -16,6 +16,7 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.looxy.looxysupport.R
 import com.looxy.looxysupport.data.DataShopList
+import com.looxy.looxysupport.utilities.AkConvertClass
 import com.looxy.looxysupport.viewholder.ViewHolderShopList
 
 
@@ -114,7 +115,7 @@ class AdapterShopList(
             holder.layoutSalonPhones.addView(textView)
         }
 
-        val amount = strRs+ (list.amount ?: "0")
+        val amount = strRs+ AkConvertClass.decimalFormat1Digit2Decimal((list.amount ?: "0"))
         holder.textWalletAmount.text = amount
 
         var checkPending = false

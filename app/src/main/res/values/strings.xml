@@ -15,9 +15,12 @@
     <string name="dot" translatable="false">\u2022</string>
 
     <string name="user_list">User List</string>
+    <string name="users">Users</string>
     <string name="shop_list">Shop List</string>
+    <string name="shops">Shops</string>
     <string name="booking_list">Booking List</string>
     <string name="booking_data">Booking Data</string>
+    <string name="bookings">Bookings</string>
     <string name="phone">Phone</string>
     <string name="no_of_bookings">No. of Bookings</string>
     <string name="wallet_amount">Wallet Amount</string>
@@ -64,4 +67,31 @@
     <string name="user_name_unknown">User name : Unknown</string>
     <string name="user_phone_unknown">User phone : Unavailable</string>
     <string name="search_booking_data">Search Booking Data</string>
+    <string name="from_date">From Date</string>
+    <string name="to_date">To Date</string>
+    <string name="last_week_users_colon">Last week users :</string>
+    <string name="users_colon">Users :</string>
+    <string name="total_users_colon">Total users:</string>
+    <string name="last_week_shops_colon">Last week shops :</string>
+    <string name="shops_colon">Shops :</string>
+    <string name="total_shops_colon">Total shops :</string>
+    <string name="last_week_bookings_colon">Last week bookings :</string>
+    <string name="bookings_colon">Bookings :</string>
+    <string name="total_bookings_colon">Total bookings :</string>
+    <string name="total_online_bookings_colon">Total online bookings :</string>
+    <string name="last_week_online_booking_colon">Last week online booking :</string>
+    <string name="online_booking_colon">Online booking :</string>
+    <string name="online_bookings">Online Bookings</string>
+    <string name="total_amount">Total Amount</string>
+    <string name="last_week_amount_colon">Last week amount :</string>
+    <string name="amount_colon">Amount :</string>
+    <string name="total_amount_colon">Total Amount :</string>
+    <string name="offer_amount">Offer Amount</string>
+    <string name="last_week_offer_amount_colon">Last week offer amount :</string>
+    <string name="offer_amount_colon">Offer amount :</string>
+    <string name="total_offer_amount_colon">Total offer amount :</string>
+    <string name="money_requested">Money Requested</string>
+    <string name="no_of_pending_request_colon">No. of pending request :</string>
+    <string name="to_date_should_be_greater_than_start_date">To date should be greater than start date</string>
+    <string name="required">Required</string>
 </resources>

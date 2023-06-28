@@ -1,6 +1,7 @@
 package com.looxy.looxysupport.utilities
 
 import com.looxy.looxysupport.data.DataBookingHistory
+import com.looxy.looxysupport.data.DataDashboard
 import com.looxy.looxysupport.data.DataShopList
 import com.looxy.looxysupport.data.DataUserList
 import retrofit2.Response
@@ -50,6 +51,13 @@ class APICall {
                               @Query("pagination") pagination: String,
                               @Query("page_number") page_number: Int,
                               @Query("page_limit") page_limit: Int) : Response<DataBookingHistory.StatusCheck>
+    }
+
+    interface ApiDashBoard {
+        @GET("adminDashboard")
+        suspend fun getResult(@Header("MyToken") token: String,
+                              @Query("from_date") from_date: String,
+                              @Query("to_date") to_date: String) : Response<DataDashboard.StatusCheck>
     }
 
     /*interface UserListApi {

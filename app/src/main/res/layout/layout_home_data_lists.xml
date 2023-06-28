@@ -1,0 +1,672 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardViewUserList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="10dp"
+        android:layout_margin="10dp"
+        app:cardElevation="5sp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:padding="10sp">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="3"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:paddingTop="10sp"
+                android:paddingBottom="10sp">
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/user_list_icon"
+                    app:tint="@color/dark_grey" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="15sp"
+                    android:text="@string/users"
+                    android:textColor="@color/dark_grey"
+                    style="@style/bold"
+                    android:layout_marginTop="10dp"/>
+            </LinearLayout>
+
+            <View
+                android:layout_width="2dp"
+                android:background="@color/grey_200"
+                android:layout_marginStart="10sp"
+                android:layout_marginEnd="10sp"
+                android:layout_height="match_parent"/>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="7"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center|start">
+
+                    <TextView
+                        android:id="@+id/textLastWeekUser"
+                        style="@style/regular"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/last_week_users_colon"
+                        android:textColor="@color/grey_600"
+                        android:textSize="13sp"
+                        tools:ignore="SmallSp" />
+
+                    <TextView
+                        android:id="@+id/textLastWeekUserCount"
+                        style="@style/bold"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/_0"
+                        android:layout_marginStart="5sp"
+                        android:textColor="@color/theme"
+                        android:textSize="15sp"
+                        tools:ignore="SmallSp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center|start"
+                    android:layout_marginTop="10sp">
+
+                    <TextView
+                        style="@style/regular"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/total_users_colon"
+                        android:textColor="@color/grey_600"
+                        android:textSize="13sp"
+                        tools:ignore="SmallSp" />
+
+                    <TextView
+                        android:id="@+id/textTotalUserCount"
+                        style="@style/bold"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/_0"
+                        android:layout_marginStart="5sp"
+                        android:textColor="@color/theme"
+                        android:textSize="15sp"
+                        tools:ignore="SmallSp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/right_icon"/>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardViewShopList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="10dp"
+        android:layout_margin="10dp"
+        app:cardElevation="5sp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:padding="10sp">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="3"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:paddingTop="10sp"
+                android:paddingBottom="10sp">
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/shop_icon"
+                    app:tint="@color/dark_grey" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="15sp"
+                    android:text="@string/shops"
+                    android:textColor="@color/dark_grey"
+                    style="@style/bold"
+                    android:layout_marginTop="10dp"/>
+            </LinearLayout>
+
+            <View
+                android:layout_width="2dp"
+                android:background="@color/grey_200"
+                android:layout_marginStart="10sp"
+                android:layout_marginEnd="10sp"
+                android:layout_height="match_parent"/>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="7"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center|start">
+
+                    <TextView
+                        android:id="@+id/textLastWeekShop"
+                        style="@style/regular"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/last_week_shops_colon"
+                        android:textColor="@color/grey_600"
+                        android:textSize="13sp"
+                        tools:ignore="SmallSp" />
+
+                    <TextView
+                        android:id="@+id/textLastWeekShopCount"
+                        style="@style/bold"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/_0"
+                        android:layout_marginStart="5sp"
+                        android:textColor="@color/theme"
+                        android:textSize="15sp"
+                        tools:ignore="SmallSp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center|start"
+                    android:layout_marginTop="10sp">
+
+                    <TextView
+                        style="@style/regular"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/total_shops_colon"
+                        android:textColor="@color/grey_600"
+                        android:textSize="13sp"
+                        tools:ignore="SmallSp" />
+
+                    <TextView
+                        android:id="@+id/textTotalShopsCount"
+                        style="@style/bold"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/_0"
+                        android:layout_marginStart="5sp"
+                        android:textColor="@color/theme"
+                        android:textSize="15sp"
+                        tools:ignore="SmallSp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/right_icon"/>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardViewBookingList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="10dp"
+        android:layout_margin="10dp"
+        app:cardElevation="5sp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:padding="10sp">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="3"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:paddingTop="10sp"
+                android:paddingBottom="10sp">
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/list_icon"
+                    app:tint="@color/dark_grey" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="15sp"
+                    android:text="@string/bookings"
+                    android:textColor="@color/dark_grey"
+                    style="@style/bold"
+                    android:layout_marginTop="10dp"/>
+            </LinearLayout>
+
+            <View
+                android:layout_width="2dp"
+                android:background="@color/grey_200"
+                android:layout_marginStart="10sp"
+                android:layout_marginEnd="10sp"
+                android:layout_height="match_parent"/>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="7"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center|start">
+
+                    <TextView
+                        android:id="@+id/textLastWeekBooking"
+                        style="@style/regular"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/last_week_bookings_colon"
+                        android:textColor="@color/grey_600"
+                        android:textSize="13sp"
+                        tools:ignore="SmallSp" />
+
+                    <TextView
+                        android:id="@+id/textLastWeekBookingCount"
+                        style="@style/bold"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/_0"
+                        android:layout_marginStart="5sp"
+                        android:textColor="@color/theme"
+                        android:textSize="15sp"
+                        tools:ignore="SmallSp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center|start"
+                    android:layout_marginTop="10sp">
+
+                    <TextView
+                        style="@style/regular"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/total_bookings_colon"
+                        android:textColor="@color/grey_600"
+                        android:textSize="13sp"
+                        tools:ignore="SmallSp" />
+
+                    <TextView
+                        android:id="@+id/textTotalBookingCount"
+                        style="@style/bold"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/_0"
+                        android:layout_marginStart="5sp"
+                        android:textColor="@color/theme"
+                        android:textSize="15sp"
+                        tools:ignore="SmallSp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/right_icon"/>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="10dp"
+        android:layout_margin="10dp"
+        app:cardElevation="5sp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:padding="10sp">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:paddingTop="10sp"
+                    android:paddingBottom="10sp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="15sp"
+                        android:text="@string/online_bookings"
+                        android:gravity="center"
+                        android:textColor="@color/dark_grey"
+                        style="@style/bold"/>
+                </LinearLayout>
+
+                <View
+                    android:layout_width="2dp"
+                    android:background="@color/grey_200"
+                    android:layout_marginStart="10sp"
+                    android:layout_marginEnd="10sp"
+                    android:layout_height="match_parent"/>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="3"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center|start">
+
+                        <TextView
+                            android:id="@+id/textLastWeekOnlineBooking"
+                            style="@style/regular"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/last_week_online_booking_colon"
+                            android:textColor="@color/grey_600"
+                            android:textSize="13sp"
+                            tools:ignore="SmallSp" />
+
+                        <TextView
+                            android:id="@+id/textLastWeekOnlineBookingCount"
+                            style="@style/bold"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/_0"
+                            android:layout_marginStart="5sp"
+                            android:textColor="@color/theme"
+                            android:textSize="15sp"
+                            tools:ignore="SmallSp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center|start"
+                        android:layout_marginTop="10sp">
+
+                        <TextView
+                            style="@style/regular"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/total_online_bookings_colon"
+                            android:textColor="@color/grey_600"
+                            android:textSize="13sp"
+                            tools:ignore="SmallSp" />
+
+                        <TextView
+                            android:id="@+id/textTotalOnlineBookingCount"
+                            style="@style/bold"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/_0"
+                            android:layout_marginStart="5sp"
+                            android:textColor="@color/theme"
+                            android:textSize="15sp"
+                            tools:ignore="SmallSp" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:padding="10sp">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:paddingTop="10sp"
+                    android:paddingBottom="10sp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="15sp"
+                        android:text="@string/total_amount"
+                        android:gravity="center"
+                        android:textColor="@color/dark_grey"
+                        style="@style/bold"/>
+                </LinearLayout>
+
+                <View
+                    android:layout_width="2dp"
+                    android:background="@color/grey_200"
+                    android:layout_marginStart="10sp"
+                    android:layout_marginEnd="10sp"
+                    android:layout_height="match_parent"/>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="3"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center|start">
+
+                        <TextView
+                            android:id="@+id/textLastWeekAmount"
+                            style="@style/regular"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/last_week_amount_colon"
+                            android:textColor="@color/grey_600"
+                            android:textSize="13sp"
+                            tools:ignore="SmallSp" />
+
+                        <TextView
+                            android:id="@+id/textLastWeekAmountValue"
+                            style="@style/bold"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/_0"
+                            android:maxLines="1"
+                            android:ellipsize="end"
+                            android:layout_marginStart="5sp"
+                            android:textColor="@color/theme"
+                            android:textSize="15sp"
+                            tools:ignore="SmallSp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center|start"
+                        android:layout_marginTop="10sp">
+
+                        <TextView
+                            style="@style/regular"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/total_amount_colon"
+                            android:textColor="@color/grey_600"
+                            android:textSize="13sp"
+                            tools:ignore="SmallSp" />
+
+                        <TextView
+                            android:id="@+id/textTotalAmountValue"
+                            style="@style/bold"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/_0"
+                            android:maxLines="1"
+                            android:ellipsize="end"
+                            android:layout_marginStart="5sp"
+                            android:textColor="@color/theme"
+                            android:textSize="15sp"
+                            tools:ignore="SmallSp" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:padding="10sp">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:paddingTop="10sp"
+                    android:paddingBottom="10sp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="15sp"
+                        android:text="@string/offer_amount"
+                        android:gravity="center"
+                        android:textColor="@color/dark_grey"
+                        style="@style/bold"/>
+                </LinearLayout>
+
+                <View
+                    android:layout_width="2dp"
+                    android:background="@color/grey_200"
+                    android:layout_marginStart="10sp"
+                    android:layout_marginEnd="10sp"
+                    android:layout_height="match_parent"/>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="3"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center|start">
+
+                        <TextView
+                            android:id="@+id/textLastWeekOfferAmount"
+                            style="@style/regular"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/last_week_offer_amount_colon"
+                            android:textColor="@color/grey_600"
+                            android:textSize="13sp"
+                            tools:ignore="SmallSp" />
+
+                        <TextView
+                            android:id="@+id/textLastWeekOfferAmountValue"
+                            style="@style/bold"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/_0"
+                            android:maxLines="1"
+                            android:ellipsize="end"
+                            android:layout_marginStart="5sp"
+                            android:textColor="@color/theme"
+                            android:textSize="15sp"
+                            tools:ignore="SmallSp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center|start"
+                        android:layout_marginTop="10sp">
+
+                        <TextView
+                            style="@style/regular"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/total_offer_amount_colon"
+                            android:textColor="@color/grey_600"
+                            android:textSize="13sp"
+                            tools:ignore="SmallSp" />
+
+                        <TextView
+                            android:id="@+id/textTotalOfferAmountValue"
+                            style="@style/bold"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/_0"
+                            android:maxLines="1"
+                            android:ellipsize="end"
+                            android:layout_marginStart="5sp"
+                            android:textColor="@color/theme"
+                            android:textSize="15sp"
+                            tools:ignore="SmallSp" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</LinearLayout>

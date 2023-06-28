@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:id="@+id/layout_date_filter"
+    android:padding="10sp">
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_weight="8"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/layoutFromDate"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:hint="@string/from_date"
+            app:endIconDrawable="@drawable/calendar_icon_black"
+            app:endIconTint="@color/black"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+            android:background="@null"
+            tools:ignore="NestedWeights">
+
+            <AutoCompleteTextView
+                android:id="@+id/autoFromDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="13sp"
+                style="@style/regular"
+                android:inputType="none"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/layoutToDate"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:hint="@string/to_date"
+            android:layout_marginStart="10sp"
+            app:endIconDrawable="@drawable/calendar_icon_black"
+            app:endIconTint="@color/black"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+            android:background="@null">
+
+            <AutoCompleteTextView
+                android:id="@+id/autoToDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="13sp"
+                style="@style/regular"
+                android:inputType="none"/>
+        </com.google.android.material.textfield.TextInputLayout>
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/imgSubmit"
+        style="@style/bold"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10sp"
+        android:layout_marginTop="3dp"
+        android:background="@drawable/bg_button_theme2"
+        android:padding="10sp"
+        android:src="@drawable/right_arrow_icon"
+        app:tint="@color/black" />
+
+</LinearLayout>

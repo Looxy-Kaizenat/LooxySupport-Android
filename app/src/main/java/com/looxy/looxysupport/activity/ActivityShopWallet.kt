@@ -13,11 +13,11 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.looxy.looxysupport.R
-import com.looxy.looxysupport.adapter.AdapterShopList
 import com.looxy.looxysupport.adapter.AdapterShopPendingWallet
 import com.looxy.looxysupport.adapter.AdapterShopWallet
 import com.looxy.looxysupport.data.DataShopList
 import com.looxy.looxysupport.utilities.APICall
+import com.looxy.looxysupport.utilities.AkConvertClass
 import com.looxy.looxysupport.utilities.ConnectionDetector
 import com.looxy.looxysupport.utilities.GifLoader
 import com.looxy.looxysupport.utilities.GlobalValues
@@ -156,7 +156,7 @@ class ActivityShopWallet : AppCompatActivity(), AdapterShopWallet.OnItemClick, A
 
                         val list: DataShopList.DataList = result.body()?.response!![0]
 
-                        val amount = strRs+ (list.amount ?: "0")
+                        val amount = strRs+ AkConvertClass.decimalFormat1Digit2Decimal((list.amount ?: "0"))
                         textWallet.text = amount
 
                         try {
