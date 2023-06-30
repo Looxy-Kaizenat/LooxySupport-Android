@@ -40,7 +40,7 @@ class AdapterShopList(
     override fun onBindViewHolder(holder: ViewHolderShopList, position: Int) {
         val list: DataShopList.DataList = data[position]
 
-        val strRs = context.resources.getString(R.string.Rs);
+        val strRs = context.resources.getString(R.string.Rs)
 
         holder.textName.text = list.name
         holder.textTotalBookings.text = list.booking_count

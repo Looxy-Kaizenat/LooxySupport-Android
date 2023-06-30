@@ -11,6 +11,11 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
+        <include
+            layout="@layout/layout_from_to_date_search"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="45sp"

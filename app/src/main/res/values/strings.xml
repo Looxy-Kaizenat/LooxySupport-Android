@@ -95,4 +95,20 @@
     <string name="to_date_should_be_greater_than_start_date">To date should be greater than start date</string>
     <string name="required">Required</string>
     <string name="from_date_should_be_less_than_to_date">From date should be less than to date</string>
+    <string name="requested_id">Request Id</string>
+    <string name="send_money">Send Money</string>
+    <string name="booking_mode">Booking Mode</string>
+    <string name="reference_number">Reference Number</string>
+    <string name="submit">Submit</string>
+    <string name="enter_details">Enter Details</string>
+    <string name="cancel">Cancel</string>
+    <string name="yes">Yes</string>
+    <string name="online_payment">Online Payment</string>
+    <string name="last_week_online_amount_colon">Last week online payment :</string>
+    <string name="online_amount_colon">Online payment :</string>
+    <string name="total_online_payment_colon">Total online payment :</string>
+    <string name="alert">Alert!</string>
+    <string name="token_expired">Invalid token, you don\'t have access to use the app</string>
+    <string name="go_to_login">Go to Login</string>
+    <string name="ok">OK</string>
 </resources>

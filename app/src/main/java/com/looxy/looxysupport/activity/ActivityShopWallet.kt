@@ -22,6 +22,7 @@ import com.looxy.looxysupport.utilities.ConnectionDetector
 import com.looxy.looxysupport.utilities.GifLoader
 import com.looxy.looxysupport.utilities.GlobalValues
 import com.looxy.looxysupport.utilities.RetrofitHelper
+import com.looxy.looxysupport.utilities.TokenExpired
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.MainScope
@@ -178,7 +179,7 @@ class ActivityShopWallet : AppCompatActivity(), AdapterShopWallet.OnItemClick, A
                         }
                     }
                     "invalidToken" -> {
-                        Toast.makeText(context, status, Toast.LENGTH_SHORT).show()
+                        TokenExpired(context)
                         dataCompleted()
                     }
                     else -> dataCompleted()

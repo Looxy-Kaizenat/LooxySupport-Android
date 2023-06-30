@@ -23,6 +23,7 @@ import com.looxy.looxysupport.utilities.DateFormat
 import com.looxy.looxysupport.utilities.GifLoader
 import com.looxy.looxysupport.utilities.GlobalValues
 import com.looxy.looxysupport.utilities.RetrofitHelper
+import com.looxy.looxysupport.utilities.TokenExpired
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.MainScope
@@ -76,7 +77,9 @@ class MainActivity : AppCompatActivity() {
     lateinit var textTotalOfferAmountValue: TextView
     lateinit var cardViewPendingRequest: CardView
     lateinit var textPendingRequest: TextView
-    lateinit var imgArrowMoneyRequested: ImageView
+    lateinit var textLastWeekOnlineBookingAmount: TextView
+    lateinit var textLastWeekOnlineBookingCountAmount: TextView
+    lateinit var textTotalOnlineBookingCountAmount: TextView
 
     var fromDate: String = ""
     var toDate: String = ""
@@ -123,14 +126,17 @@ class MainActivity : AppCompatActivity() {
         textTotalOfferAmountValue = findViewById(R.id.textTotalOfferAmountValue)
         cardViewPendingRequest = findViewById(R.id.cardViewPendingRequest)
         textPendingRequest = findViewById(R.id.textPendingRequest)
-        imgArrowMoneyRequested = findViewById(R.id.imgArrowMoneyRequested)
-
-        imgArrowMoneyRequested.visibility = View.GONE
+        textLastWeekOnlineBookingAmount = findViewById(R.id.textLastWeekOnlineBookingAmount)
+        textLastWeekOnlineBookingCountAmount = findViewById(R.id.textLastWeekOnlineBookingCountAmount)
+        textTotalOnlineBookingCountAmount = findViewById(R.id.textTotalOnlineBookingCountAmount)
 
         cardViewUserList.setOnClickListener { startActivity(Intent(context, ActivityUserList::class.java)) }
         cardViewShopList.setOnClickListener { startActivity(Intent(context, ActivityShopList::class.java)) }
         cardViewBookingList.setOnClickListener { startActivity(Intent(context, ActivityBookingHistory::class.java)) }
 
+        cardViewPendingRequest.setOnClickListener { startActivity(Intent(context, ActivityMoneyRequestedShops::class.java)) }
+
+//        from and to date starts here
         startDateCalendar = Calendar.getInstance()
         endDateCalendar = Calendar.getInstance()
         val currentDate = Calendar.getInstance()
@@ -168,7 +174,6 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }
-
         imgSubmit.setOnClickListener {
             layoutFromDate.error = null
             layoutFromDate.isErrorEnabled = false
@@ -181,6 +186,7 @@ class MainActivity : AppCompatActivity() {
             else
                 GetData().execute()
         }
+//        from and to date ends here
 
         if(ConnectionDetector(context).checkForInternet())
             GetData().execute()
@@ -278,6 +284,7 @@ class MainActivity : AppCompatActivity() {
                                 textLastWeekOnlineBooking.text = context.resources.getString(R.string.last_week_online_booking_colon)
                                 textLastWeekAmount.text = context.resources.getString(R.string.last_week_amount_colon)
                                 textLastWeekOfferAmount.text = context.resources.getString(R.string.last_week_offer_amount_colon)
+                                textLastWeekOnlineBookingAmount.text = context.resources.getString(R.string.last_week_online_amount_colon)
                             }
                             else
                             {
@@ -287,6 +294,7 @@ class MainActivity : AppCompatActivity() {
                                 textLastWeekOnlineBooking.text = context.resources.getString(R.string.online_booking_colon)
                                 textLastWeekAmount.text = context.resources.getString(R.string.amount_colon)
                                 textLastWeekOfferAmount.text = context.resources.getString(R.string.offer_amount_colon)
+                                textLastWeekOnlineBookingAmount.text = context.resources.getString(R.string.online_amount_colon)
                             }
 
                             textLastWeekUserCount.text = result.body()?.weekUser
@@ -298,8 +306,11 @@ class MainActivity : AppCompatActivity() {
                             textLastWeekBookingCount.text = result.body()?.weekBookings
                             textTotalBookingCount.text = result.body()?.allBookings
 
-                            textLastWeekOnlineBookingCount.text = "-"
-                            textTotalOnlineBookingCount.text = "-"
+                            textLastWeekOnlineBookingCount.text = result.body()?.weekOnlineBookings
+                            textTotalOnlineBookingCount.text = result.body()?.allOnlineBookings
+
+                            textLastWeekOnlineBookingCountAmount.text = strRs+ AkConvertClass.decimalFormat1Digit2Decimal(result.body()?.weekOnlineValue ?:"0")
+                            textTotalOnlineBookingCountAmount.text = strRs+ AkConvertClass.decimalFormat1Digit2Decimal(result.body()?.allOnlineValue ?:"0")
 
                             textLastWeekAmountValue.text = strRs+ AkConvertClass.decimalFormat1Digit2Decimal(result.body()?.weekValue ?:"0")
                             textTotalAmountValue.text = strRs+ AkConvertClass.decimalFormat1Digit2Decimal(result.body()?.allValue ?:"0")
@@ -308,18 +319,12 @@ class MainActivity : AppCompatActivity() {
                             textTotalOfferAmountValue.text = strRs+ AkConvertClass.decimalFormat1Digit2Decimal(result.body()?.allOffer ?:"0")
 
                             textPendingRequest.text = result.body()?.moneyRequested
-
-                            if(result.body()?.moneyRequested!!.toInt() > 0)
-                            {
-                                imgArrowMoneyRequested.visibility = View.VISIBLE
-                                cardViewPendingRequest.setOnClickListener { startActivity(Intent(context, ActivityMoneyRequestedShops::class.java)) }
-                            }
                         }catch (e: Exception) {
                             Log.e("testing", "Response Exception is $e")
                         }
                     }
                     "invalidToken" -> {
-                        Toast.makeText(context, status, Toast.LENGTH_SHORT).show()
+                        TokenExpired(context)
                     }
                     else -> Toast.makeText(context, getString(R.string.server_error_please_try_again_after_sometime), Toast.LENGTH_SHORT).show()
                 }

@@ -296,116 +296,69 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:gravity="center|start">
+                    android:orientation="vertical">
 
-                    <TextView
-                        android:id="@+id/textLastWeekBooking"
-                        style="@style/regular"
-                        android:layout_width="wrap_content"
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/last_week_bookings_colon"
-                        android:textColor="@color/grey_600"
-                        android:textSize="13sp"
-                        tools:ignore="SmallSp" />
+                        android:orientation="horizontal"
+                        android:gravity="center|start">
 
-                    <TextView
-                        android:id="@+id/textLastWeekBookingCount"
-                        style="@style/bold"
-                        android:layout_width="wrap_content"
+                        <TextView
+                            android:id="@+id/textLastWeekBooking"
+                            style="@style/regular"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/last_week_bookings_colon"
+                            android:textColor="@color/grey_600"
+                            android:textSize="13sp"
+                            tools:ignore="SmallSp" />
+
+                        <TextView
+                            android:id="@+id/textLastWeekBookingCount"
+                            style="@style/bold"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/_0"
+                            android:layout_marginStart="5sp"
+                            android:textColor="@color/theme"
+                            android:textSize="15sp"
+                            tools:ignore="SmallSp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/_0"
-                        android:layout_marginStart="5sp"
-                        android:textColor="@color/theme"
-                        android:textSize="15sp"
-                        tools:ignore="SmallSp" />
+                        android:orientation="horizontal"
+                        android:gravity="center|start"
+                        android:layout_marginTop="10sp">
+
+                        <TextView
+                            style="@style/regular"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/total_bookings_colon"
+                            android:textColor="@color/grey_600"
+                            android:textSize="13sp"
+                            tools:ignore="SmallSp" />
+
+                        <TextView
+                            android:id="@+id/textTotalBookingCount"
+                            style="@style/bold"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/_0"
+                            android:layout_marginStart="5sp"
+                            android:textColor="@color/theme"
+                            android:textSize="15sp"
+                            tools:ignore="SmallSp" />
+                    </LinearLayout>
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:gravity="center|start"
-                    android:layout_marginTop="10sp">
-
-                    <TextView
-                        style="@style/regular"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/total_bookings_colon"
-                        android:textColor="@color/grey_600"
-                        android:textSize="13sp"
-                        tools:ignore="SmallSp" />
-
-                    <TextView
-                        android:id="@+id/textTotalBookingCount"
-                        style="@style/bold"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/_0"
-                        android:layout_marginStart="5sp"
-                        android:textColor="@color/theme"
-                        android:textSize="15sp"
-                        tools:ignore="SmallSp" />
-                </LinearLayout>
-            </LinearLayout>
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/right_icon"/>
-        </LinearLayout>
-    </androidx.cardview.widget.CardView>
-
-    <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:cardCornerRadius="10dp"
-        android:layout_margin="10dp"
-        app:cardElevation="5sp">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center"
-                android:padding="10sp">
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:gravity="center"
-                    android:paddingTop="10sp"
-                    android:paddingBottom="10sp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="15sp"
-                        android:text="@string/online_bookings"
-                        android:gravity="center"
-                        android:textColor="@color/dark_grey"
-                        style="@style/bold"/>
-                </LinearLayout>
-
-                <View
-                    android:layout_width="2dp"
-                    android:background="@color/grey_200"
-                    android:layout_marginStart="10sp"
-                    android:layout_marginEnd="10sp"
-                    android:layout_height="match_parent"/>
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_weight="3"
-                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20sp"
                     android:orientation="vertical">
 
                     <LinearLayout
@@ -454,6 +407,122 @@
 
                         <TextView
                             android:id="@+id/textTotalOnlineBookingCount"
+                            style="@style/bold"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/_0"
+                            android:layout_marginStart="5sp"
+                            android:textColor="@color/theme"
+                            android:textSize="15sp"
+                            tools:ignore="SmallSp" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/right_icon"/>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="10dp"
+        android:layout_margin="10dp"
+        app:cardElevation="5sp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:padding="10sp">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:paddingTop="10sp"
+                    android:paddingBottom="10sp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="15sp"
+                        android:text="@string/online_payment"
+                        android:gravity="center"
+                        android:textColor="@color/dark_grey"
+                        style="@style/bold"/>
+                </LinearLayout>
+
+                <View
+                    android:layout_width="2dp"
+                    android:background="@color/grey_200"
+                    android:layout_marginStart="10sp"
+                    android:layout_marginEnd="10sp"
+                    android:layout_height="match_parent"/>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="3"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center|start">
+
+                        <TextView
+                            android:id="@+id/textLastWeekOnlineBookingAmount"
+                            style="@style/regular"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/last_week_online_amount_colon"
+                            android:textColor="@color/grey_600"
+                            android:textSize="13sp"
+                            tools:ignore="SmallSp" />
+
+                        <TextView
+                            android:id="@+id/textLastWeekOnlineBookingCountAmount"
+                            style="@style/bold"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/_0"
+                            android:layout_marginStart="5sp"
+                            android:textColor="@color/theme"
+                            android:textSize="15sp"
+                            tools:ignore="SmallSp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center|start"
+                        android:layout_marginTop="10sp">
+
+                        <TextView
+                            style="@style/regular"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/total_online_payment_colon"
+                            android:textColor="@color/grey_600"
+                            android:textSize="13sp"
+                            tools:ignore="SmallSp" />
+
+                        <TextView
+                            android:id="@+id/textTotalOnlineBookingCountAmount"
                             style="@style/bold"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
