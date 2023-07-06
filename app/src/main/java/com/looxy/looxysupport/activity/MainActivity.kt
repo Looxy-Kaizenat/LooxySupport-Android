@@ -80,6 +80,8 @@ class MainActivity : AppCompatActivity() {
     lateinit var textLastWeekOnlineBookingAmount: TextView
     lateinit var textLastWeekOnlineBookingCountAmount: TextView
     lateinit var textTotalOnlineBookingCountAmount: TextView
+    lateinit var cardViewIncentiveUserList: CardView
+    lateinit var cardViewNotification: CardView
 
     var fromDate: String = ""
     var toDate: String = ""
@@ -129,12 +131,17 @@ class MainActivity : AppCompatActivity() {
         textLastWeekOnlineBookingAmount = findViewById(R.id.textLastWeekOnlineBookingAmount)
         textLastWeekOnlineBookingCountAmount = findViewById(R.id.textLastWeekOnlineBookingCountAmount)
         textTotalOnlineBookingCountAmount = findViewById(R.id.textTotalOnlineBookingCountAmount)
+        cardViewIncentiveUserList = findViewById(R.id.cardViewIncentiveUserList)
+        cardViewNotification = findViewById(R.id.cardViewNotification)
 
         cardViewUserList.setOnClickListener { startActivity(Intent(context, ActivityUserList::class.java)) }
         cardViewShopList.setOnClickListener { startActivity(Intent(context, ActivityShopList::class.java)) }
         cardViewBookingList.setOnClickListener { startActivity(Intent(context, ActivityBookingHistory::class.java)) }
 
         cardViewPendingRequest.setOnClickListener { startActivity(Intent(context, ActivityMoneyRequestedShops::class.java)) }
+
+        cardViewIncentiveUserList.setOnClickListener { startActivity(Intent(context, ActivityIncentiveUserList::class.java)) }
+        cardViewNotification.setOnClickListener { startActivity(Intent(context, ActivitySendNotification::class.java)) }
 
 //        from and to date starts here
         startDateCalendar = Calendar.getInstance()

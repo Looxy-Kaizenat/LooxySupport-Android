@@ -64,4 +64,8 @@ dependencies {
 
     // circle image view
     implementation 'de.hdodenhof:circleimageview:3.0.1'
+
+//    QR code
+    implementation 'com.google.zxing:core:3.4.0'
+    implementation 'androidx.palette:palette:1.0.0'
 }

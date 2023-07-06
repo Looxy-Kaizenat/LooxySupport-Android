@@ -111,4 +111,15 @@
     <string name="token_expired">Invalid token, you don\'t have access to use the app</string>
     <string name="go_to_login">Go to Login</string>
     <string name="ok">OK</string>
+    <string name="shop_name">Shop Name</string>
+    <string name="view_qr_code">View QR Code</string>
+    <string name="incentive_user_list">Incentive User List</string>
+    <string name="share">Share</string>
+    <string name="others">Others</string>
+    <string name="notifications">Notifications</string>
+    <string name="share_qr_code">Share QR Code</string>
+    <string name="name">Name</string>
+    <string name="phone_star">Phone *</string>
+    <string name="name_star">Name *</string>
+    <string name="create">Create</string>
 </resources>

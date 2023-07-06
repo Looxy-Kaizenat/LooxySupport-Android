@@ -17,9 +17,21 @@
         android:theme="@style/Theme.LooxySupport"
         tools:targetApi="34">
         <activity
-            android:name=".activity.ActivityMoneyRequestedShops"
+            android:name=".activity.ActivitySendNotification"
             android:exported="false"
             android:theme="@style/secondaryTheme"/>
+        <activity
+            android:name=".activity.ActivityCreateIncentiveUser"
+            android:exported="false"
+            android:theme="@style/secondaryTheme" />
+        <activity
+            android:name=".activity.ActivityIncentiveUserList"
+            android:exported="false"
+            android:theme="@style/secondaryTheme" />
+        <activity
+            android:name=".activity.ActivityMoneyRequestedShops"
+            android:exported="false"
+            android:theme="@style/secondaryTheme" />
         <activity
             android:name=".activity.ActivityBookingHistory"
             android:exported="false"
@@ -57,6 +69,16 @@
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/paths" />
+        </provider>
     </application>
 
 </manifest>

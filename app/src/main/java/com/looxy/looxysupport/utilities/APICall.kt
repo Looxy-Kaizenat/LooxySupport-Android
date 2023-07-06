@@ -2,6 +2,8 @@ package com.looxy.looxysupport.utilities
 
 import com.looxy.looxysupport.data.DataBookingHistory
 import com.looxy.looxysupport.data.DataDashboard
+import com.looxy.looxysupport.data.DataGenerateIncentiveQR
+import com.looxy.looxysupport.data.DataIncentiveUserList
 import com.looxy.looxysupport.data.DataMoneyRequested
 import com.looxy.looxysupport.data.DataSendMoneyToOwner
 import com.looxy.looxysupport.data.DataShopList
@@ -16,8 +18,8 @@ import retrofit2.http.Query
 
 class APICall {
 
-    var baseUrl: String = "https://www.api.looxy.in/api/"
-//    var baseUrl: String = "https://www.api.looxy.in/dev_api/api/"
+//    var baseUrl: String = "https://www.api.looxy.in/api/"
+    var baseUrl: String = "https://www.api.looxy.in/dev_api/api/"
 
     interface ApiUserList {
         @GET("allUsers")
@@ -83,5 +85,20 @@ class APICall {
                               @Field("ref_number") ref_number: String,
                               @Field("shop_id") shop_id: String,
                               @Field("owner_id") owner_id: String) : Response<DataSendMoneyToOwner.StatusCheck>
+    }
+
+    interface ApiIncentiveUserList {
+        @GET("incentiveQRList")
+        suspend fun getResult(@Header("MyToken") token: String) : Response<DataIncentiveUserList.StatusCheck>
+    }
+
+    interface ApiGenerateIncentiveQR {
+        @FormUrlEncoded
+        @POST("generateIncentiveQR")
+        suspend fun getResult(@Header("MyToken") token: String,
+                              @Field("name") name: String,
+                              @Field("mobile") mobile: String,
+                              @Field("email") email: String,
+                              @Field("shop_name") shop_name: String) : Response<DataGenerateIncentiveQR.StatusCheck>
     }
 }

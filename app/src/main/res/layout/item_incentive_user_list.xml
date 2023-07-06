@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="10dp"
+    android:layout_margin="10dp"
+    android:id="@+id/layoutMain"
+    app:cardElevation="5sp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <TextView
+                android:id="@+id/textName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:text="@string/app_name"
+                android:textColor="@color/theme"
+                style="@style/bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:textSize="11sp"
+                    android:text="@string/phone"
+                    android:textColor="@color/dark_grey"
+                    style="@style/regular" />
+
+                <TextView
+                    android:id="@+id/textPhone"
+                    android:layout_width="0dp"
+                    android:layout_weight="1.5"
+                    android:layout_height="wrap_content"
+                    android:textSize="13sp"
+                    android:text="@string/app_name"
+                    android:textColor="@color/black"
+                    style="@style/bold"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layoutMail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:textSize="11sp"
+                    android:text="@string/email"
+                    android:textColor="@color/dark_grey"
+                    style="@style/regular" />
+
+                <TextView
+                    android:id="@+id/textEmail"
+                    android:layout_width="0dp"
+                    android:layout_weight="1.5"
+                    android:layout_height="wrap_content"
+                    android:textSize="13sp"
+                    android:text="@string/app_name"
+                    android:textColor="@color/black"
+                    style="@style/bold"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layoutShop"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:textSize="11sp"
+                    android:text="@string/shop_name"
+                    android:textColor="@color/dark_grey"
+                    style="@style/regular" />
+
+                <TextView
+                    android:id="@+id/textShopName"
+                    android:layout_width="0dp"
+                    android:layout_weight="1.5"
+                    android:layout_height="wrap_content"
+                    android:textSize="13sp"
+                    android:text="@string/app_name"
+                    android:textColor="@color/black"
+                    style="@style/bold"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/grey_200"
+            android:layout_marginTop="5sp"
+            tools:ignore="SmallSp" />
+
+        <TextView
+            android:id="@+id/textViewQR"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10sp"
+            android:text="@string/view_qr_code"
+            style="@style/bold"
+            android:textSize="15sp"
+            android:background="@drawable/black_opacity_click_animation"
+            android:textColor="@color/theme2"
+            android:gravity="center"/>
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

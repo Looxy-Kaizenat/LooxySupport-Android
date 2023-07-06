@@ -41,6 +41,11 @@
                 layout="@layout/layout_home_money_requested"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
+
+            <include
+                layout="@layout/layout_home_others"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 

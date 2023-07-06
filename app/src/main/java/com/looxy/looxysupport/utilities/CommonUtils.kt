@@ -1,6 +1,15 @@
 package com.looxy.looxysupport.utilities
 
+import android.graphics.Bitmap
+import android.graphics.Color
+import com.google.zxing.BarcodeFormat
+import com.google.zxing.EncodeHintType
+import com.google.zxing.MultiFormatWriter
+import com.google.zxing.WriterException
+import com.google.zxing.common.BitMatrix
+import com.google.zxing.qrcode.decoder.ErrorCorrectionLevel
 import java.util.Calendar
+import java.util.Hashtable
 
 object CommonUtils {
 
@@ -65,5 +74,29 @@ object CommonUtils {
         val resultHour = resultTime[Calendar.HOUR_OF_DAY]
         val resultMinute = resultTime[Calendar.MINUTE]
         return "$resultHour:$resultMinute"
+    }
+
+    fun generateQRCode(text: String): Bitmap? {
+        val hints = Hashtable<EncodeHintType, Any>()
+        hints[EncodeHintType.ERROR_CORRECTION] = ErrorCorrectionLevel.H
+        hints[EncodeHintType.MARGIN] = 0
+        try {
+            val bitMatrix: BitMatrix = MultiFormatWriter().encode(text, BarcodeFormat.QR_CODE, 1024, 1024, hints)
+            val width = bitMatrix.width
+            val height = bitMatrix.height
+            val pixels = IntArray(width * height)
+            for (y in 0 until height) {
+                val offset = y * width
+                for (x in 0 until width) {
+                    pixels[offset + x] = if (bitMatrix.get(x, y)) Color.BLACK else Color.WHITE
+                }
+            }
+            val bitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888)
+            bitmap.setPixels(pixels, 0, width, 0, 0, width, height)
+            return bitmap
+        } catch (e: WriterException) {
+            e.printStackTrace()
+        }
+        return null
     }
 }
