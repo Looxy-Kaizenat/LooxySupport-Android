@@ -5,6 +5,7 @@ import android.app.Dialog
 import android.content.Context
 import android.content.Intent
 import android.graphics.Bitmap
+import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import androidx.appcompat.app.AppCompatActivity
@@ -23,15 +24,10 @@ import androidx.core.content.FileProvider
 import androidx.core.widget.NestedScrollView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.google.android.material.textfield.TextInputEditText
-import com.google.android.material.textfield.TextInputLayout
 import com.looxy.looxysupport.R
 import com.looxy.looxysupport.adapter.AdapterIncentiveUserList
-import com.looxy.looxysupport.adapter.AdapterMoneyRequested
 import com.looxy.looxysupport.data.DataIncentiveUserList
-import com.looxy.looxysupport.data.DataMoneyRequested
 import com.looxy.looxysupport.utilities.APICall
-import com.looxy.looxysupport.utilities.AkConvertClass
 import com.looxy.looxysupport.utilities.CommonUtils
 import com.looxy.looxysupport.utilities.ConnectionDetector
 import com.looxy.looxysupport.utilities.GifLoader
@@ -226,6 +222,7 @@ class ActivityIncentiveUserList : AppCompatActivity(), AdapterIncentiveUserList.
         val textSubmit: TextView = convertView.findViewById(R.id.textSubmit)
         val textCancel: TextView = convertView.findViewById(R.id.textCancel)
         val textTitle: TextView = convertView.findViewById(R.id.textTitle)
+        val layoutQRCodeShareContent: LinearLayout = convertView.findViewById(R.id.layoutQRCodeShareContent)
 
         val title = "$name's QR code"
         textTitle.text = title
@@ -234,12 +231,29 @@ class ActivityIncentiveUserList : AppCompatActivity(), AdapterIncentiveUserList.
         imgQRCode.setImageBitmap(qrCodeBitmap)
 
         textSubmit.setOnClickListener {
+            layoutQRCodeShareContent.measure(
+                View.MeasureSpec.makeMeasureSpec(layoutQRCodeShareContent.width, View.MeasureSpec.EXACTLY),
+                View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED)
+            )
+            layoutQRCodeShareContent.layout(
+                layoutQRCodeShareContent.left,
+                layoutQRCodeShareContent.top,
+                layoutQRCodeShareContent.right,
+                layoutQRCodeShareContent.top + layoutQRCodeShareContent.measuredHeight
+            )
+            val bitmap = Bitmap.createBitmap(
+                layoutQRCodeShareContent.measuredWidth,
+                layoutQRCodeShareContent.measuredHeight,
+                Bitmap.Config.ARGB_8888
+            )
+            val canvas = Canvas(bitmap)
+            layoutQRCodeShareContent.draw(canvas)
             val cachePath = File(applicationContext.cacheDir, "images")
             cachePath.mkdirs()
             val qrCodeFile = File(cachePath, "qrcode.png")
             val qrCodeUri = FileProvider.getUriForFile(this, "$packageName.fileprovider", qrCodeFile)
             val qrCodeOutputStream = FileOutputStream(qrCodeFile)
-            qrCodeBitmap?.compress(Bitmap.CompressFormat.PNG, 100, qrCodeOutputStream)
+            bitmap.compress(Bitmap.CompressFormat.PNG, 100, qrCodeOutputStream)
             qrCodeOutputStream.close()
 
             val shareIntent = Intent(Intent.ACTION_SEND)

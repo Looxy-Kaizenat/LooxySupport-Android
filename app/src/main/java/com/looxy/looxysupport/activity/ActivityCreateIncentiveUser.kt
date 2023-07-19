@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.graphics.Bitmap
+import android.graphics.Canvas
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -65,6 +66,7 @@ class ActivityCreateIncentiveUser : AppCompatActivity() {
     private lateinit var layoutQRCode: LinearLayout
     private lateinit var imgQRCode: ImageView
     private lateinit var textShare: TextView
+    private lateinit var layoutQRCodeShareContent: LinearLayout
 
     var name = ""
     var email = ""
@@ -99,6 +101,7 @@ class ActivityCreateIncentiveUser : AppCompatActivity() {
         layoutQRCode = findViewById(R.id.layoutQRCode)
         imgQRCode = findViewById(R.id.imgQRCode)
         textShare = findViewById(R.id.textShare)
+        layoutQRCodeShareContent = findViewById(R.id.layoutQRCodeShareContent)
 
         layoutQRCode.visibility = View.GONE
 
@@ -276,12 +279,29 @@ class ActivityCreateIncentiveUser : AppCompatActivity() {
                             imgQRCode.setImageBitmap(qrCodeBitmap)
 
                             textShare.setOnClickListener {
+                                layoutQRCodeShareContent.measure(
+                                    View.MeasureSpec.makeMeasureSpec(layoutQRCodeShareContent.width, View.MeasureSpec.EXACTLY),
+                                    View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED)
+                                )
+                                layoutQRCodeShareContent.layout(
+                                    layoutQRCodeShareContent.left,
+                                    layoutQRCodeShareContent.top,
+                                    layoutQRCodeShareContent.right,
+                                    layoutQRCodeShareContent.top + layoutQRCodeShareContent.measuredHeight
+                                )
+                                val bitmap = Bitmap.createBitmap(
+                                    layoutQRCodeShareContent.measuredWidth,
+                                    layoutQRCodeShareContent.measuredHeight,
+                                    Bitmap.Config.ARGB_8888
+                                )
+                                val canvas = Canvas(bitmap)
+                                layoutQRCodeShareContent.draw(canvas)
                                 val cachePath = File(applicationContext.cacheDir, "images")
                                 cachePath.mkdirs()
                                 val qrCodeFile = File(cachePath, "qrcode.png")
                                 val qrCodeUri = FileProvider.getUriForFile(context, "$packageName.fileprovider", qrCodeFile)
                                 val qrCodeOutputStream = FileOutputStream(qrCodeFile)
-                                qrCodeBitmap?.compress(Bitmap.CompressFormat.PNG, 100, qrCodeOutputStream)
+                                bitmap.compress(Bitmap.CompressFormat.PNG, 100, qrCodeOutputStream)
                                 qrCodeOutputStream.close()
 
                                 val shareIntent = Intent(Intent.ACTION_SEND)

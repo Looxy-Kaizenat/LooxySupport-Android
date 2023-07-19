@@ -1,9 +1,103 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".activity.ActivitySendNotification">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <include
+            layout="@layout/actionbar"/>
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/nestedScrollView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="20sp"
+                android:orientation="vertical"
+                android:gravity="center">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layoutTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/title_star"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:background="@null">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/editTitle"
+                        style="@style/regular"
+                        android:textSize="15sp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textCapSentences"/>
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layoutMessage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/message"
+                    android:layout_marginTop="10sp"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:background="@null">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/editMessage"
+                        style="@style/regular"
+                        android:textSize="15sp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textMultiLine|textCapSentences"/>
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layoutType"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/type"
+                    android:layout_marginTop="10sp"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                    android:background="@null">
+                    <AutoCompleteTextView
+                        android:id="@+id/autoType"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="none"/>
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                    android:id="@+id/textSubmit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/send"
+                    android:layout_marginTop="20sp"
+                    android:layout_marginBottom="15sp"
+                    android:textSize="16sp"
+                    android:gravity="center"
+                    android:paddingTop="10sp"
+                    android:paddingBottom="10sp"
+                    android:paddingStart="50dp"
+                    android:paddingEnd="50dp"
+                    style="@style/bold"
+                    android:textColor="@color/black"
+                    android:background="@drawable/bg_button_theme2" />
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+    </LinearLayout>
+
+    <include
+        layout="@layout/layout_loader_full"/>
+
+</RelativeLayout>

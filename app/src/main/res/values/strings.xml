@@ -122,4 +122,9 @@
     <string name="phone_star">Phone *</string>
     <string name="name_star">Name *</string>
     <string name="create">Create</string>
+    <string name="the_salon_and_spa_booking_app">The Salon and Spa Booking App</string>
+    <string name="title_star">Title *</string>
+    <string name="message">Message *</string>
+    <string name="type">Type *</string>
+    <string name="send">Send</string>
 </resources>

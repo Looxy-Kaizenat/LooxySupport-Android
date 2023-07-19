@@ -6,6 +6,7 @@ import com.looxy.looxysupport.data.DataGenerateIncentiveQR
 import com.looxy.looxysupport.data.DataIncentiveUserList
 import com.looxy.looxysupport.data.DataMoneyRequested
 import com.looxy.looxysupport.data.DataSendMoneyToOwner
+import com.looxy.looxysupport.data.DataSendNotification
 import com.looxy.looxysupport.data.DataShopList
 import com.looxy.looxysupport.data.DataUserList
 import retrofit2.Response
@@ -18,8 +19,8 @@ import retrofit2.http.Query
 
 class APICall {
 
-//    var baseUrl: String = "https://www.api.looxy.in/api/"
-    var baseUrl: String = "https://www.api.looxy.in/dev_api/api/"
+    var baseUrl: String = "https://www.api.looxy.in/api/"
+//    var baseUrl: String = "https://www.api.looxy.in/dev_api/api/"
 
     interface ApiUserList {
         @GET("allUsers")
@@ -100,5 +101,14 @@ class APICall {
                               @Field("mobile") mobile: String,
                               @Field("email") email: String,
                               @Field("shop_name") shop_name: String) : Response<DataGenerateIncentiveQR.StatusCheck>
+    }
+
+    interface ApiSendNotification {
+        @FormUrlEncoded
+        @POST("bulkNotifications")
+        suspend fun getResult(@Header("MyToken") token: String,
+                              @Field("user_type") user_type: String,
+                              @Field("title") title: String,
+                              @Field("message") message: String) : Response<DataSendNotification.StatusCheck>
     }
 }
