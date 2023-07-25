@@ -16,17 +16,6 @@
             android:gravity="center"
             android:padding="10sp">
 
-            <TextView
-                android:id="@+id/textTitle"
-                style="@style/bold"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="16sp"
-                android:text="@string/app_name"
-                android:gravity="center"
-                android:textColor="@color/theme"
-                android:padding="10sp"/>
-
             <LinearLayout
                 android:id="@+id/layoutQRCodeShareContent"
                 android:layout_width="match_parent"
@@ -34,6 +23,17 @@
                 android:orientation="vertical"
                 android:background="@color/white"
                 android:gravity="center">
+
+                <TextView
+                    android:id="@+id/textTitle"
+                    style="@style/bold"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:text="@string/app_name"
+                    android:gravity="center"
+                    android:textColor="@color/theme"
+                    android:padding="10sp"/>
 
                 <ImageView
                     android:layout_width="match_parent"

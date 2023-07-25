@@ -66,6 +66,7 @@ class ActivityCreateIncentiveUser : AppCompatActivity() {
     private lateinit var layoutQRCode: LinearLayout
     private lateinit var imgQRCode: ImageView
     private lateinit var textShare: TextView
+    private lateinit var textTitle: TextView
     private lateinit var layoutQRCodeShareContent: LinearLayout
 
     var name = ""
@@ -102,6 +103,7 @@ class ActivityCreateIncentiveUser : AppCompatActivity() {
         imgQRCode = findViewById(R.id.imgQRCode)
         textShare = findViewById(R.id.textShare)
         layoutQRCodeShareContent = findViewById(R.id.layoutQRCodeShareContent)
+        textTitle = findViewById(R.id.textTitle)
 
         layoutQRCode.visibility = View.GONE
 
@@ -262,6 +264,9 @@ class ActivityCreateIncentiveUser : AppCompatActivity() {
                         try {
 
                             globalValues.put("fromCreateIncentiveUserPage", true)
+
+                            val title = "$name's QR code"
+                            textTitle.text = title
 
                             editName.setText("")
                             editPhone.setText("")
