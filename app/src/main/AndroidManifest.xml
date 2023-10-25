@@ -17,9 +17,13 @@
         android:theme="@style/Theme.LooxySupport"
         tools:targetApi="34">
         <activity
-            android:name=".activity.ActivitySendNotification"
+            android:name=".activity.ActivityAssignReferralCode"
             android:exported="false"
             android:theme="@style/secondaryTheme"/>
+        <activity
+            android:name=".activity.ActivitySendNotification"
+            android:exported="false"
+            android:theme="@style/secondaryTheme" />
         <activity
             android:name=".activity.ActivityCreateIncentiveUser"
             android:exported="false"

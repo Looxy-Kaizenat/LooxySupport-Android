@@ -2,11 +2,10 @@ package com.looxy.looxysupport.utilities
 
 import com.looxy.looxysupport.data.DataBookingHistory
 import com.looxy.looxysupport.data.DataDashboard
-import com.looxy.looxysupport.data.DataGenerateIncentiveQR
 import com.looxy.looxysupport.data.DataIncentiveUserList
 import com.looxy.looxysupport.data.DataMoneyRequested
+import com.looxy.looxysupport.data.DataPostStatus
 import com.looxy.looxysupport.data.DataSendMoneyToOwner
-import com.looxy.looxysupport.data.DataSendNotification
 import com.looxy.looxysupport.data.DataShopList
 import com.looxy.looxysupport.data.DataUserList
 import retrofit2.Response
@@ -19,8 +18,8 @@ import retrofit2.http.Query
 
 class APICall {
 
-    var baseUrl: String = "https://www.api.looxy.in/api/"
-//    var baseUrl: String = "https://www.api.looxy.in/dev_api/api/"
+//    var baseUrl: String = "https://www.api.looxy.in/v1/api/"
+    var baseUrl: String = "https://www.api.looxy.in/dev_api/api/"
 
     interface ApiUserList {
         @GET("allUsers")
@@ -100,7 +99,15 @@ class APICall {
                               @Field("name") name: String,
                               @Field("mobile") mobile: String,
                               @Field("email") email: String,
-                              @Field("shop_name") shop_name: String) : Response<DataGenerateIncentiveQR.StatusCheck>
+                              @Field("shop_name") shop_name: String) : Response<DataPostStatus.StatusCheck>
+    }
+
+    interface ApiAssignReferralCode {
+        @FormUrlEncoded
+        @POST("assign-ref-code")
+        suspend fun getResult(@Header("MyToken") token: String,
+                              @Field("shop_id") shop_id: String,
+                              @Field("ref_code") ref_code: String) : Response<DataPostStatus.StatusCheck>
     }
 
     interface ApiSendNotification {
@@ -109,6 +116,6 @@ class APICall {
         suspend fun getResult(@Header("MyToken") token: String,
                               @Field("user_type") user_type: String,
                               @Field("title") title: String,
-                              @Field("message") message: String) : Response<DataSendNotification.StatusCheck>
+                              @Field("message") message: String) : Response<DataPostStatus.StatusCheck>
     }
 }

@@ -1,6 +1,6 @@
 package com.looxy.looxysupport.data
 
-class DataGenerateIncentiveQR {
+class DataPostStatus {
     data class StatusCheck(
         val status : String,
         val response : String,

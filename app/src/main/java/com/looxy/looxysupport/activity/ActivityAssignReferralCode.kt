@@ -39,9 +39,9 @@ import retrofit2.Response
 import java.io.File
 import java.io.FileOutputStream
 
-class ActivityCreateIncentiveUser : AppCompatActivity() {
+class ActivityAssignReferralCode : AppCompatActivity() {
 
-    var context : Context = this@ActivityCreateIncentiveUser
+    var context : Context = this@ActivityAssignReferralCode
     private lateinit var globalValues: GlobalValues
     lateinit var loader: GifLoader
     lateinit var layoutLoader: LinearLayout
@@ -52,29 +52,19 @@ class ActivityCreateIncentiveUser : AppCompatActivity() {
     private var registerEmail: String = ""
     private var registerImage: String = ""
 
-    private lateinit var layoutName: TextInputLayout
-    private lateinit var editName: TextInputEditText
-    private lateinit var layoutPhone: TextInputLayout
-    private lateinit var editPhone: TextInputEditText
-    private lateinit var layoutEmail: TextInputLayout
-    private lateinit var editEmail: TextInputEditText
+    private lateinit var layoutReferralCode: TextInputLayout
+    private lateinit var editReferralCode: TextInputEditText
     private lateinit var layoutShop: TextInputLayout
     private lateinit var autoShop: AutoCompleteTextView
     private lateinit var textSubmit: TextView
-    private lateinit var layoutQRCode: LinearLayout
-    private lateinit var imgQRCode: ImageView
-    private lateinit var textShare: TextView
-    private lateinit var textTitle: TextView
-    private lateinit var layoutQRCodeShareContent: LinearLayout
 
-    var name = ""
-    var email = ""
-    var phone = ""
+    var referralCode = ""
     var shopName = ""
+    var shopId = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_create_incentive_user)
+        setContentView(R.layout.activity_assign_referral_code)
 
         globalValues = GlobalValues(context)
         loader = GifLoader(context)
@@ -85,41 +75,28 @@ class ActivityCreateIncentiveUser : AppCompatActivity() {
 
         val imgBack: ImageView = findViewById(R.id.imgBack)
         val textActionTitle: TextView = findViewById(R.id.textActionTitle)
-        textActionTitle.text = context.resources.getString(R.string.create)
+        textActionTitle.text = context.resources.getString(R.string.assign_referral_code)
         imgBack.setOnClickListener { onBackPressed() }
 
-        layoutName = findViewById(R.id.layoutName)
-        editName = findViewById(R.id.editName)
-        layoutPhone = findViewById(R.id.layoutPhone)
-        editPhone = findViewById(R.id.editPhone)
-        layoutEmail = findViewById(R.id.layoutEmail)
-        editEmail = findViewById(R.id.editEmail)
+        layoutReferralCode = findViewById(R.id.layoutReferralCode)
+        editReferralCode = findViewById(R.id.editReferralCode)
         layoutShop = findViewById(R.id.layoutShop)
         autoShop = findViewById(R.id.autoShop)
         textSubmit = findViewById(R.id.textSubmit)
-        layoutQRCode = findViewById(R.id.layoutQRCode)
-        imgQRCode = findViewById(R.id.imgQRCode)
-        textShare = findViewById(R.id.textShare)
-        layoutQRCodeShareContent = findViewById(R.id.layoutQRCodeShareContent)
-        textTitle = findViewById(R.id.textTitle)
-
-        layoutQRCode.visibility = View.GONE
 
         textSubmit.setOnClickListener {
-            layoutName.error = null
-            layoutName.isErrorEnabled = false
-            layoutPhone.error = null
-            layoutPhone.isErrorEnabled = false
+            layoutReferralCode.error = null
+            layoutReferralCode.isErrorEnabled = false
+            layoutShop.error = null
+            layoutShop.isErrorEnabled = false
 
-            name = editName.text.toString().trim()
-            phone = editPhone.text.toString().trim()
-            email = editEmail.text.toString().trim()
+            referralCode = editReferralCode.text.toString().trim()
             shopName = autoShop.text.toString().trim()
 
-            if(name.isEmpty())
-                layoutName.error = getString(R.string.required)
-            else if(phone.isEmpty())
-                layoutPhone.error = getString(R.string.required)
+            if(shopName.isEmpty())
+                layoutShop.error = getString(R.string.required)
+            else if(referralCode.isEmpty())
+                layoutReferralCode.error = getString(R.string.required)
             else
                 UpdateData().execute()
         }
@@ -186,11 +163,18 @@ class ActivityCreateIncentiveUser : AppCompatActivity() {
                     "success" -> {
                         try {
                             val arrayList = ArrayList<String>()
-                            for (item in result.body()?.response!!)
+                            val arrayListIds = ArrayList<String>()
+                            for (item in result.body()?.response!!) {
                                 arrayList.add(item.name)
+                                arrayListIds.add(item.shop_id)
+                            }
 
                             val adapter = ArrayAdapter(context, R.layout.item_dropdown_textview, R.id.textview, arrayList)
                             autoShop.setAdapter(adapter)
+
+                            autoShop.setOnItemClickListener { _, _, position, _ ->
+                                shopId = arrayListIds[position]
+                            }
                         }catch (e: Exception) {
                             Log.e("testing", "Response Exception is $e")
                         }
@@ -229,8 +213,8 @@ class ActivityCreateIncentiveUser : AppCompatActivity() {
 
             try {
 
-                result = RetrofitHelper.getInstance().create(APICall.ApiGenerateIncentiveQR::class.java)
-                    .getResult(registerToken, name = name, mobile = phone, email = email, shop_name = shopName)
+                result = RetrofitHelper.getInstance().create(APICall.ApiAssignReferralCode::class.java)
+                    .getResult(registerToken, shop_id = shopId, ref_code = referralCode)
 
                 if(result.isSuccessful) {
                     status = result.body()?.status ?: ""
@@ -261,57 +245,8 @@ class ActivityCreateIncentiveUser : AppCompatActivity() {
                     "success" -> {
                         try {
 
-                            globalValues.put("fromCreateIncentiveUserPage", true)
-
-                            val title = "$name's QR code"
-                            textTitle.text = title
-
-                            editName.setText("")
-                            editPhone.setText("")
-                            editEmail.setText("")
-                            autoShop.setText("")
-                            name = ""
-                            phone = ""
-                            email = ""
-                            shopName = ""
-
                             Toast.makeText(context, result.body()?.message, Toast.LENGTH_SHORT).show()
-                            layoutQRCode.visibility = View.VISIBLE
-
-                            val qrCodeBitmap = CommonUtils.generateQRCode(result.body()?.response!!)
-                            imgQRCode.setImageBitmap(qrCodeBitmap)
-
-                            textShare.setOnClickListener {
-                                layoutQRCodeShareContent.measure(
-                                    View.MeasureSpec.makeMeasureSpec(layoutQRCodeShareContent.width, View.MeasureSpec.EXACTLY),
-                                    View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED)
-                                )
-                                layoutQRCodeShareContent.layout(
-                                    layoutQRCodeShareContent.left,
-                                    layoutQRCodeShareContent.top,
-                                    layoutQRCodeShareContent.right,
-                                    layoutQRCodeShareContent.top + layoutQRCodeShareContent.measuredHeight
-                                )
-                                val bitmap = Bitmap.createBitmap(
-                                    layoutQRCodeShareContent.measuredWidth,
-                                    layoutQRCodeShareContent.measuredHeight,
-                                    Bitmap.Config.ARGB_8888
-                                )
-                                val canvas = Canvas(bitmap)
-                                layoutQRCodeShareContent.draw(canvas)
-                                val cachePath = File(applicationContext.cacheDir, "images")
-                                cachePath.mkdirs()
-                                val qrCodeFile = File(cachePath, "qrcode.png")
-                                val qrCodeUri = FileProvider.getUriForFile(context, "$packageName.fileprovider", qrCodeFile)
-                                val qrCodeOutputStream = FileOutputStream(qrCodeFile)
-                                bitmap.compress(Bitmap.CompressFormat.PNG, 100, qrCodeOutputStream)
-                                qrCodeOutputStream.close()
-
-                                val shareIntent = Intent(Intent.ACTION_SEND)
-                                shareIntent.type = "image/*"
-                                shareIntent.putExtra(Intent.EXTRA_STREAM, qrCodeUri)
-                                startActivity(Intent.createChooser(shareIntent, "Share QR Code"))
-                            }
+                            finish()
                         }catch (e: Exception) {
                             Log.e("testing", "Response Exception is $e")
                         }

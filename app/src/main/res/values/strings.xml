@@ -127,4 +127,6 @@
     <string name="message">Message *</string>
     <string name="type">Type *</string>
     <string name="send">Send</string>
+    <string name="assign_referral_code">Assign Referral Code</string>
+    <string name="referral_code">Referral Code</string>
 </resources>

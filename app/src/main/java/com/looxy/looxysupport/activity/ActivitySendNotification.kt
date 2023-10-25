@@ -1,27 +1,20 @@
 package com.looxy.looxysupport.activity
 
 import android.content.Context
-import android.content.Intent
-import android.graphics.Bitmap
-import android.graphics.Canvas
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
-import androidx.core.content.FileProvider
+import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 import com.looxy.looxysupport.R
-import com.looxy.looxysupport.data.DataGenerateIncentiveQR
-import com.looxy.looxysupport.data.DataSendNotification
+import com.looxy.looxysupport.data.DataPostStatus
 import com.looxy.looxysupport.utilities.APICall
-import com.looxy.looxysupport.utilities.CommonUtils
 import com.looxy.looxysupport.utilities.GifLoader
 import com.looxy.looxysupport.utilities.GlobalValues
 import com.looxy.looxysupport.utilities.RetrofitHelper
@@ -34,8 +27,6 @@ import kotlinx.coroutines.withContext
 import org.json.JSONException
 import org.json.JSONObject
 import retrofit2.Response
-import java.io.File
-import java.io.FileOutputStream
 
 class ActivitySendNotification : AppCompatActivity() {
 
@@ -116,7 +107,7 @@ class ActivitySendNotification : AppCompatActivity() {
 
     inner class UpdateData: CoroutineScope by MainScope()
     {
-        lateinit var result: Response<DataSendNotification.StatusCheck>
+        lateinit var result: Response<DataPostStatus.StatusCheck>
 
         val coroutineScope = CoroutineScope(Dispatchers.Main)
 

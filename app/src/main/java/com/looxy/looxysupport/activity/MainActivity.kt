@@ -82,6 +82,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var textTotalOnlineBookingCountAmount: TextView
     lateinit var cardViewIncentiveUserList: CardView
     lateinit var cardViewNotification: CardView
+    lateinit var cardViewAssignReferralCode: CardView
 
     var fromDate: String = ""
     var toDate: String = ""
@@ -133,6 +134,7 @@ class MainActivity : AppCompatActivity() {
         textTotalOnlineBookingCountAmount = findViewById(R.id.textTotalOnlineBookingCountAmount)
         cardViewIncentiveUserList = findViewById(R.id.cardViewIncentiveUserList)
         cardViewNotification = findViewById(R.id.cardViewNotification)
+        cardViewAssignReferralCode = findViewById(R.id.cardViewAssignReferralCode)
 
         cardViewUserList.setOnClickListener { startActivity(Intent(context, ActivityUserList::class.java)) }
         cardViewShopList.setOnClickListener { startActivity(Intent(context, ActivityShopList::class.java)) }
@@ -142,6 +144,7 @@ class MainActivity : AppCompatActivity() {
 
         cardViewIncentiveUserList.setOnClickListener { startActivity(Intent(context, ActivityIncentiveUserList::class.java)) }
         cardViewNotification.setOnClickListener { startActivity(Intent(context, ActivitySendNotification::class.java)) }
+        cardViewAssignReferralCode.setOnClickListener { startActivity(Intent(context, ActivityAssignReferralCode::class.java)) }
 
 //        from and to date starts here
         startDateCalendar = Calendar.getInstance()
