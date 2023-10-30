@@ -8,9 +8,12 @@ import android.graphics.Canvas
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
+import android.widget.Filter
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
@@ -38,6 +41,7 @@ import org.json.JSONObject
 import retrofit2.Response
 import java.io.File
 import java.io.FileOutputStream
+import java.util.Locale
 
 class ActivityAssignReferralCode : AppCompatActivity() {
 
@@ -61,6 +65,9 @@ class ActivityAssignReferralCode : AppCompatActivity() {
     var referralCode = ""
     var shopName = ""
     var shopId = ""
+
+    data class Item(val id: String, val name: String)
+    val items = mutableListOf<Item>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -162,18 +169,19 @@ class ActivityAssignReferralCode : AppCompatActivity() {
                 when (status) {
                     "success" -> {
                         try {
-                            val arrayList = ArrayList<String>()
-                            val arrayListIds = ArrayList<String>()
+
                             for (item in result.body()?.response!!) {
-                                arrayList.add(item.name)
-                                arrayListIds.add(item.shop_id)
+                                items.add(Item(item.shop_id, item.name))
                             }
 
-                            val adapter = ArrayAdapter(context, R.layout.item_dropdown_textview, R.id.textview, arrayList)
+                            val adapter = CustomAdapter(context, items)
                             autoShop.setAdapter(adapter)
 
-                            autoShop.setOnItemClickListener { _, _, position, _ ->
-                                shopId = arrayListIds[position]
+                            autoShop.setOnItemClickListener { parent, view, position, id ->
+                                val selectedItem = parent.getItemAtPosition(position) as Item
+                                shopId = selectedItem.id
+                                autoShop.setText(selectedItem.name)
+                                Log.e("testing", "Selected id $shopId")
                             }
                         }catch (e: Exception) {
                             Log.e("testing", "Response Exception is $e")
@@ -190,6 +198,54 @@ class ActivityAssignReferralCode : AppCompatActivity() {
             }
         }
     }
+
+    inner class CustomAdapter(context: Context, private val originalItems: List<Item>) : ArrayAdapter<Item>(context, R.layout.item_dropdown_textview, originalItems) {
+
+        private var filteredItems: List<Item> = originalItems.toList()
+
+        override fun getCount(): Int = filteredItems.size
+        override fun getItem(position: Int): Item = filteredItems[position]
+
+        override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
+            val view = convertView ?: LayoutInflater.from(context).inflate(R.layout.item_dropdown_textview, parent, false)
+            val textView = view.findViewById<TextView>(R.id.textview)
+            textView.text = getItem(position).name
+            return view
+        }
+
+        override fun getDropDownView(position: Int, convertView: View?, parent: ViewGroup): View {
+            val view = convertView ?: LayoutInflater.from(context).inflate(R.layout.item_dropdown_textview, parent, false)
+            val textView = view.findViewById<TextView>(R.id.textview)
+            textView.text = getItem(position).name
+            return view
+        }
+
+        override fun getFilter(): Filter {
+            return object : Filter() {
+                override fun performFiltering(constraint: CharSequence?): FilterResults {
+                    val results = FilterResults()
+                    if (constraint == null || constraint.isEmpty()) {
+                        results.values = originalItems
+                        results.count = originalItems.size
+                    } else {
+                        val searchText = constraint.toString().lowercase(Locale.ROOT)
+                        val filteredList = originalItems.filter {
+                            it.name.lowercase(Locale.ROOT).contains(searchText)
+                        }
+                        results.values = filteredList
+                        results.count = filteredList.size
+                    }
+                    return results
+                }
+
+                override fun publishResults(constraint: CharSequence?, results: FilterResults?) {
+                    filteredItems = results?.values as List<Item>
+                    notifyDataSetChanged()
+                }
+            }
+        }
+    }
+
 
     inner class UpdateData: CoroutineScope by MainScope()
     {
